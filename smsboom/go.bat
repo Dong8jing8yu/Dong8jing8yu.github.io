@@ -1,3 +1,6 @@
+rem !使用脚本造成的问题均由使用者承担!
+rem !使用脚本造成的问题均由使用者承担!
+rem !使用脚本造成的问题均由使用者承担!
 @echo off
 mode con cols=50 lines=25
 TITLE smsboom 辅助脚本
