@@ -22,11 +22,11 @@ set api-time=2023-11-23
 set get_api-time=2023-11-23
 set version=0.0.1
 set GUI-3=作者
-set GUI-5_6=添加
 set multithreaded=1
 set frequency=1
 set Interval=0
 set proxy=关闭
+set update=国外
 :START
 cls
 echo.
@@ -36,9 +36,9 @@ echo.                smsboom 辅助脚本
 echo.
 echo.        1.启动轰炸         2.多个轰炸
 echo.
-echo.        3.接口[%GUI-3%]       4.更新接口
+echo.        3.短信接口[%GUI-3%]   4.更新接口
 echo.
-echo.        5.%GUI-5_6%API          6.%GUI-5_6%GET-API
+echo.        5.免责声明         6.更新镜像[%update%]
 echo.
 echo.        7.关于脚本         8.更新脚本
 echo.
@@ -54,15 +54,11 @@ if %errorlevel%==4 (
     if %GUI-3%==作者 set GUI-3=自定
     if %GUI-3%==自定 set GUI-3=官方
 
-    if %GUI-3%==自定 set GUI-5_6=查看
-    if %GUI-3%==官方 set GUI-5_6=查看
-    if %GUI-3%==其他 set GUI-5_6=添加
-
     goto START
 )
 if %errorlevel%==5 (
+    cls
     if %GUI-3%==官方 (
-        cls
         echo 时间%jb-time%，官方网址仍有问题，可能会导致无法使用!是否继续更新
         choice
         if errorlevel 1 %file_smsboom% update
@@ -70,12 +66,8 @@ if %errorlevel%==5 (
         pause
 
     )
-    if %GUI-3%==其他 (
-        cls
-        echo 是否使用国内源更新  可能不是最新!
-        choice
-        if errorlevel 1 (
-            cls
+    if %GUI-3%==作者 (
+        if %update%==国内 (
             echo.正在从Gitee上下载API.json
             curl -L -O --ssl-no-revoke https://gitee.com/Dong8jing8yu/Dong8jing8yu.github.io/raw/main/smsboom/api.json
             pause
@@ -83,7 +75,7 @@ if %errorlevel%==5 (
             echo.正在从Gitee上下载GETAPI.json
             curl -L -O --ssl-no-revoke https://gitee.com/Dong8jing8yu/Dong8jing8yu.github.io/raw/main/smsboom/GETAPI.json
         )
-        if errorlevel 2 (
+        if %update%==国外 (
             cls
             echo.正在从GitHub上下载API.json
             curl -L -O --ssl-no-revoke https://github.com/Dong8jing8yu/Dong8jing8yu.github.io/raw/main/smsboom/api.json
@@ -97,18 +89,21 @@ if %errorlevel%==5 (
     )
     goto START  
 )
-if %errorlevel%==6 goto START
-if %errorlevel%==7 goto START
+if %errorlevel%==6 goto DISCLAIMER
+if %errorlevel%==7 (
+    if %update%==国外 set update=国内
+    if %update%==国内 set update=国外
+
+    goto START
+)
 if %errorlevel%==8 goto ABOUT
 if %errorlevel%==9 (
     cls
-    echo 是否使用国内源更新  可能不是最新!
-    choice
-    if errorlevel 1 (
+    if %update%==国内 (
         echo.正在从Gitee上下载最新脚本
         curl -L -O --ssl-no-revoke https://gitee.com/Dong8jing8yu/Dong8jing8yu.github.io/raw/main/smsboom/go.bat
     )
-    if errorlevel 2 (
+    if %update%==国外 (
         echo.正在从GitHub上下载最新脚本
         curl -L -O --ssl-no-revoke https://github.com/Dong8jing8yu/Dong8jing8yu.github.io/raw/main/smsboom/go.bat
     )
@@ -142,12 +137,39 @@ if %errorlevel%==5 (
     goto SINGLE
 )
 
+:DISCLAIMER
+cls
+echo.
+ECHO.==================================================
+echo.
+echo.                   !免责声明!            
+echo.         使用此程序请遵守当地的法律法规
+echo.       触犯法律所造成的问题均由使用者承担。
+echo.                   禁止恶意使用
+echo.              禁止滥用与用于商业用途
+echo.                   禁止二改
+echo.               未经作者同意禁止搬运
+echo.
+echo.
+echo.
+echo.       !使用脚本造成的问题均由使用者承担!
+echo.
+echo.       !使用脚本造成的问题均由使用者承担!
+echo.
+echo.       !使用脚本造成的问题均由使用者承担!
+echo.
+echo.         !使用本辅助脚本则代表同意!
+ECHO.==================================================
+echo.
+pause
+goto START
+
 :ABOUT
 cls
 echo.
 ECHO.==================================================
 echo.
-echo.                    关于脚本               
+echo.                   关于脚本               
 echo.
 echo.                   ↓作者↓
 echo.
@@ -165,8 +187,6 @@ echo.                   版本:%version%
 echo.                 %jb-time%
 echo.         https://dong8jing8yu.github.io/
 ECHO.==================================================
-echo.                   免责声明 
-echo.使用此程序请遵守当地的法律法规，禁止滥用与用于商业
-echo.禁止恶意使用，触犯法律所造成的问题均由使用者承担。
+echo.
 pause
 goto START
