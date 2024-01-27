@@ -11,13 +11,20 @@ set http_proxy=%cd%\http_proxy.txt
 set socks4_proxy=%cd%\socks4_proxy.txt
 set socks5_proxy=%cd%\socks5_proxy.txt
 
+rem 检查重要文件
+if not exist %file_smsboom% echo 重要程序不存在 & pause & exit /b
+
+rem 读取配置文件
+
 rem 设置变量
-rem 官方接口已经无啦
 set jb-time=2024/2/1/12:00
 set version=0.0.1
 set GUI-3=其他
 set GUI-5_6=添加
 set multithreaded=1
+set frequency=1
+set Interval=0
+set proxy=关闭
 :START
 cls
 echo.
@@ -40,7 +47,7 @@ ECHO.==================================================
 choice /c:012345678 /m:"请选择你要的模式"
 if %errorlevel%==1 exit
 if %errorlevel%==2 goto SINGLE
-if %errorlevel%==3 goto MULTIPLE
+if %errorlevel%==3 goto START
 if %errorlevel%==4 (
     if %GUI-3%==官方 set GUI-3=其他
     if %GUI-3%==其他 set GUI-3=自定
@@ -77,7 +84,7 @@ if %errorlevel%==5 (
 )
 if %errorlevel%==6 goto START
 if %errorlevel%==7 goto START
-if %errorlevel%==8 pause
+if %errorlevel%==8 goto ABOUT
 if %errorlevel%==9 (
     cls
     echo.正在从GitHub上下载最新脚本
@@ -86,18 +93,16 @@ if %errorlevel%==9 (
     goto START
 )
 
-
-
 :SINGLE
 cls
 echo.
-echo.==================================================
+ECHO.==================================================
 echo.
 echo.                    单人轰炸               
 echo.
-echo.       1.修改线程数[1]      2.轮番轰炸次数[0]
+echo.       1.修改线程数[%multithreaded%]      2.轮番轰炸次数[%frequency%]
 echo.
-echo.       3.间隔时间[0]        4.代理列表[关闭]
+echo.       3.间隔时间[%Interval%]        4.代理列表[%proxy%]
 echo.
 echo.                   0.back
 echo.
@@ -107,25 +112,37 @@ if %errorlevel%==1 goto START
 if %errorlevel%==2 goto SINGLE
 if %errorlevel%==3 goto SINGLE
 if %errorlevel%==4 goto SINGLE
-if %errorlevel%==5 goto SINGLE
+if %errorlevel%==5 (
+    if %proxy%==关闭 set proxy=开启
+    if %proxy%==开启 set proxy=关闭
+    goto SINGLE
+)
 
-:MULTIPLE
+:ABOUT
 cls
 echo.
-echo.==================================================
+ECHO.==================================================
 echo.
-echo.                    多人轰炸               
+echo.                    关于脚本               
 echo.
-echo.       1.修改线程数[1]      2.轮番轰炸次数[0]
 echo.
-echo.       3.间隔时间[0]        4.代理列表[关闭]
 echo.
-echo.                   0.back
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
 echo.
 ECHO.==================================================
-choice /c:01234 /m:"你要干啥"
-if %errorlevel%==1 goto START
-if %errorlevel%==2 goto MULTIPLE
-if %errorlevel%==3 goto MULTIPLE
-if %errorlevel%==4 goto MULTIPLE
-if %errorlevel%==5 goto MULTIPLE
+pause
+goto START
