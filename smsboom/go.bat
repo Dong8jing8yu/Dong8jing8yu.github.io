@@ -1,6 +1,6 @@
 @echo off
 mode con cols=50 lines=25
-TITLE 一键轰炸
+TITLE smsboom 辅助脚本
 color 02
 rem 环境变量
 set file_config=%cd%\config.ini
@@ -18,8 +18,10 @@ rem 读取配置文件
 
 rem 设置变量
 set jb-time=2024/2/1/12:00
+set api-time=2023-11-23
+set get_api-time=2023-11-23
 set version=0.0.1
-set GUI-3=其他
+set GUI-3=作者
 set GUI-5_6=添加
 set multithreaded=1
 set frequency=1
@@ -30,8 +32,7 @@ cls
 echo.
 ECHO.==================================================
 echo.
-echo.                 东经雨编写
-echo.                    %version%
+echo.                smsboom 辅助脚本
 echo.
 echo.        1.启动轰炸         2.多个轰炸
 echo.
@@ -49,8 +50,8 @@ if %errorlevel%==1 exit
 if %errorlevel%==2 goto SINGLE
 if %errorlevel%==3 goto START
 if %errorlevel%==4 (
-    if %GUI-3%==官方 set GUI-3=其他
-    if %GUI-3%==其他 set GUI-3=自定
+    if %GUI-3%==官方 set GUI-3=作者
+    if %GUI-3%==作者 set GUI-3=自定
     if %GUI-3%==自定 set GUI-3=官方
 
     if %GUI-3%==自定 set GUI-5_6=查看
@@ -128,21 +129,21 @@ echo.
 echo.
 echo.
 echo.
+echo.                   ↓作者↓
 echo.
+echo.                    东经雨
 echo.
+echo.                  ↓E-mail↓
 echo.
+echo.               10554117737@qq.com
+echo.                    
+echo.            ↓最后一次更新接口时间↓
 echo.
+echo.         api:%api-time%    get:%get_api-time%
 echo.
-echo.
-echo.
-echo.
-echo.
-echo.
-echo.
-echo.
-echo.
-echo.
-echo.
+echo.                   版本:%version%
+echo.                 %jb-time%
+echo.         https://dong8jing8yu.github.io/
 ECHO.==================================================
 pause
 goto START
