@@ -149,9 +149,6 @@ ECHO.==================================================
 echo.
 echo.                    关于脚本               
 echo.
-echo.
-echo.
-echo.
 echo.                   ↓作者↓
 echo.
 echo.                    东经雨
@@ -168,5 +165,8 @@ echo.                   版本:%version%
 echo.                 %jb-time%
 echo.         https://dong8jing8yu.github.io/
 ECHO.==================================================
+echo.                   免责声明 
+echo.使用此程序请遵守当地的法律法规，禁止滥用与用于商业
+echo.禁止恶意使用，触犯法律所造成的问题均由使用者承担。
 pause
 goto START
