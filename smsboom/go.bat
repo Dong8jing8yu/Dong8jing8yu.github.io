@@ -24,7 +24,7 @@ echo.
 ECHO.==================================================
 echo.
 echo.                 东经雨编写
-echo.                   %version%
+echo.                    %version%
 echo.
 echo.        1.启动轰炸         2.多个轰炸
 echo.
@@ -65,11 +65,11 @@ if %errorlevel%==5 (
     if %GUI-3%==其他 (
         cls
         echo.正在从GitHub上下载api.json
-        curl -O --ssl-no-revoke https://raw.githubusercontent.com/Dong8jing8yu/Dong8jing8yu.github.io/main/smsboom/api.json
+        curl -L -O --ssl-no-revoke https://github.com/Dong8jing8yu/Dong8jing8yu.github.io/raw/main/smsboom/api.json
         pause
         cls
         echo.正在从GitHub上下载GETAPI.json
-        curl -O --ssl-no-revoke https://raw.githubusercontent.com/Dong8jing8yu/Dong8jing8yu.github.io/main/smsboom/GETAPI.json
+        curl -L -O --ssl-no-revoke https://github.com/Dong8jing8yu/Dong8jing8yu.github.io/raw/main/smsboom/GETAPI.json
         pause
         goto START
     )
@@ -81,7 +81,7 @@ if %errorlevel%==8 pause
 if %errorlevel%==9 (
     cls
     echo.正在从GitHub上下载最新脚本
-    curl -O --ssl-no-revoke https://raw.githubusercontent.com/Dong8jing8yu/Dong8jing8yu.github.io/main/smsboom/go.bat
+    curl -L -O --ssl-no-revoke https://github.com/Dong8jing8yu/Dong8jing8yu.github.io/raw/main/smsboom/go.bat
     pause
     goto START
 )
