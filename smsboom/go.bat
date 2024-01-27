@@ -23,14 +23,16 @@ rem 设置变量
 set jb-time=2024/2/1/12:00
 set api-time=2023-11-23
 set get_api-time=2023-11-23
-set version=0.0.1
+set version=0.0.5
 set GUI-3=作者
 set multithreaded=1
 set frequency=1
 set Interval=0
-set proxy=关闭
+set proxy=
+set GUI-proxy=关闭
 set update=国外
 :START
+set quantity=1
 cls
 echo.
 ECHO.==================================================
@@ -51,11 +53,10 @@ ECHO.==================================================
 choice /c:012345678 /m:"请选择你要的模式"
 if %errorlevel%==1 exit
 if %errorlevel%==2 goto SINGLE
-if %errorlevel%==3 goto START
+if %errorlevel%==3 goto multiple
 if %errorlevel%==4 (
     if %GUI-3%==官方 set GUI-3=作者
-    if %GUI-3%==作者 set GUI-3=自定
-    if %GUI-3%==自定 set GUI-3=官方
+    if %GUI-3%==作者 set GUI-3=官方
 
     goto START
 )
@@ -72,20 +73,20 @@ if %errorlevel%==5 (
     if %GUI-3%==作者 (
         if %update%==国内 (
             echo.正在从Gitee上下载API.json
-            curl -L -O --ssl-no-revoke https://gitee.com/Dong8jing8yu/Dong8jing8yu.github.io/raw/main/smsboom/api.json
+            curl -L -O https://gitee.com/Dong8jing8yu/Dong8jing8yu.github.io/raw/main/smsboom/api.json
             pause
             cls
             echo.正在从Gitee上下载GETAPI.json
-            curl -L -O --ssl-no-revoke https://gitee.com/Dong8jing8yu/Dong8jing8yu.github.io/raw/main/smsboom/GETAPI.json
+            curl -L -O https://gitee.com/Dong8jing8yu/Dong8jing8yu.github.io/raw/main/smsboom/GETAPI.json
         )
         if %update%==国外 (
             cls
             echo.正在从GitHub上下载API.json
-            curl -L -O --ssl-no-revoke https://github.com/Dong8jing8yu/Dong8jing8yu.github.io/raw/main/smsboom/api.json
+            curl -L -O --ssl-no-revoke https://raw.githubusercontent.com/Dong8jing8yu/Dong8jing8yu.github.io/main/smsboom/api.json
             pause
             cls
             echo.正在从GitHub上下载GETAPI.json
-            curl -L -O --ssl-no-revoke https://github.com/Dong8jing8yu/Dong8jing8yu.github.io/raw/main/smsboom/GETAPI.json
+            curl -L -O --ssl-no-revoke https://raw.githubusercontent.com/Dong8jing8yu/Dong8jing8yu.github.io/main/smsboom/GETAPI.json
         )
         pause
         goto START
@@ -104,11 +105,11 @@ if %errorlevel%==9 (
     cls
     if %update%==国内 (
         echo.正在从Gitee上下载最新脚本
-        curl -L -O --ssl-no-revoke https://gitee.com/Dong8jing8yu/Dong8jing8yu.github.io/raw/main/smsboom/go.bat
+        curl -L -O https://gitee.com/Dong8jing8yu/Dong8jing8yu.github.io/raw/main/smsboom/go.bat
     )
     if %update%==国外 (
         echo.正在从GitHub上下载最新脚本
-        curl -L -O --ssl-no-revoke https://github.com/Dong8jing8yu/Dong8jing8yu.github.io/raw/main/smsboom/go.bat
+        curl -L -O --ssl-no-revoke https://raw.githubusercontent.com/Dong8jing8yu/Dong8jing8yu.github.io/main/smsboom/go.bat
     )
     
     pause
@@ -122,24 +123,84 @@ ECHO.==================================================
 echo.
 echo.                    单人轰炸               
 echo.
-echo.       1.修改线程数[%multithreaded%]      2.轮番轰炸次数[%frequency%]
+echo.     1.线程数[%multithreaded%]         2.轮番次数[%frequency%]
+echo.                  5.开始
+echo.     3.间隔时间[%Interval%]        4.代理列表[%GUI-proxy%]
 echo.
-echo.       3.间隔时间[%Interval%]        4.代理列表[%proxy%]
-echo.
-echo.                   0.back
+echo.                     0.back
 echo.
 ECHO.==================================================
-choice /c:01234 /m:"你要干啥"
+choice /c:012345 /m:"你要干啥"
 if %errorlevel%==1 goto START
-if %errorlevel%==2 goto SINGLE
-if %errorlevel%==3 goto SINGLE
-if %errorlevel%==4 goto SINGLE
-if %errorlevel%==5 (
-    if %proxy%==关闭 set proxy=开启
-    if %proxy%==开启 set proxy=关闭
+if %errorlevel%==2 (
+    set /p multithreaded=请输入线程数:
     goto SINGLE
 )
+if %errorlevel%==3 (
+    set /p frequency=请输入轰炸次数:
+    goto SINGLE
+)
+if %errorlevel%==4 (
+    set /p Interval=请输入间隔时间-秒:
+    goto SINGLE
+)
+if %errorlevel%==5 (
+    if %GUI-proxy%==关闭 set GUI-proxy=开启
+    if %GUI-proxy%==开启 set GUI-proxy=关闭
 
+    if %GUI-proxy%==关闭 set proxy=
+    if %GUI-proxy%==开启 set proxy=-e
+    goto SINGLE
+)
+if %errorlevel%==6 (
+    cls
+    set /p phone=请输入手机号:
+    %file_smsboom% run -t %multithreaded% -p %phone% -f %frequency% -i %Interval% %proxy%
+    pause
+    goto START
+)
+:multiple
+cls
+echo.
+ECHO.==================================================
+echo.
+echo.                    多人轰炸               
+echo.
+echo.          1.线程数[%multithreaded%]       2.轮番次数[%frequency%]
+echo.                      5.开始
+echo.          3.间隔时间[%Interval%]        4.代理列表[%GUI-proxy%]
+echo.                      6.受害者[%quantity%]
+echo.
+echo.                     0.back
+echo.
+ECHO.==================================================
+choice /c:0123456 /m:"你要干啥"
+if %errorlevel%==1 goto START
+if %errorlevel%==2 (
+    set /p multithreaded=请输入线程数:
+    goto SINGLE
+)
+if %errorlevel%==3 (
+    set /p frequency=请输入轰炸次数:
+    goto SINGLE
+)
+if %errorlevel%==4 (
+    set /p Interval=请输入间隔时间-秒:
+    goto SINGLE
+)
+if %errorlevel%==5 (
+    if %GUI-proxy%==关闭 set GUI-proxy=开启
+    if %GUI-proxy%==开启 set GUI-proxy=关闭
+
+    if %GUI-proxy%==关闭 set proxy=
+    if %GUI-proxy%==开启 set proxy=-e
+    goto SINGLE
+)
+if %errorlevel%==6 goto START
+if %errorlevel%==7 (
+    set /a quantity=%quantity%+1
+    goto multiple
+)
 :DISCLAIMER
 cls
 echo.
