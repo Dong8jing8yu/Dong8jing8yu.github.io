@@ -25,7 +25,7 @@ rem 设置变量
 set jb-time=2024/2/1/12:00
 set api-time=2023-11-23
 set get_api-time=2023-11-23
-set version=0.0.6
+set version=0.0.7
 set GUI-3=作者
 set multithreaded=1
 set frequency=1
@@ -35,6 +35,7 @@ set GUI-proxy=关闭
 set update=国外
 :START
 set quantity=1
+set phone=
 cls
 echo.
 ECHO.==================================================
@@ -119,7 +120,6 @@ if %errorlevel%==9 (
 )
 
 :SINGLE
-set phone=
 cls
 echo.
 ECHO.==================================================
@@ -133,6 +133,7 @@ echo.
 echo.                     0.back
 echo.
 ECHO.==================================================
+set /p phone=请输入手机号:
 choice /c:012345 /m:"你要干啥"
 if %errorlevel%==1 goto START
 if %errorlevel%==2 (
@@ -157,7 +158,6 @@ if %errorlevel%==5 (
 )
 if %errorlevel%==6 (
     cls
-    set /p phone=请输入手机号:
     echo. %file_smsboom% run -t %multithreaded% -p %phone% -f %frequency% -i %Interval% %proxy%
     pause
     %file_smsboom% run -t %multithreaded% -p %phone% -f %frequency% -i %Interval% %proxy%
