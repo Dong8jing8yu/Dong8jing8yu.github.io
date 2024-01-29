@@ -25,9 +25,9 @@ rem 设置变量
 set jb-time=2024/2/1/12:00
 set api-time=2023-11-23
 set get_api-time=2023-11-23
-set version=0.0.7
+set version=0.0.8
 set GUI-3=作者
-set multithreaded=1
+set multithreaded=10
 set frequency=1
 set Interval=0
 set proxy=
@@ -133,7 +133,10 @@ echo.
 echo.                     0.back
 echo.
 ECHO.==================================================
-set /p phone=请输入手机号:
+if not defined phone (
+    set /p phone=请输入手机号:
+)
+
 choice /c:012345 /m:"你要干啥"
 if %errorlevel%==1 goto START
 if %errorlevel%==2 (
