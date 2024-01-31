@@ -1,13 +1,13 @@
-%%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a
-rem è¿™ä¸ªåªæ˜¯æœ€ç®€å•çš„åŠ å¯†åªæ˜¯ç”¨ç³»ç»Ÿè‡ªå¸¦çš„è®°äº‹æœ¬æ‰“å¼€ä¸äº†
-rem !ä½¿ç”¨è„šæœ¬é€ æˆçš„é—®é¢˜å‡ç”±ä½¿ç”¨è€…æ‰¿æ‹…!
-rem !ä½¿ç”¨è„šæœ¬é€ æˆçš„é—®é¢˜å‡ç”±ä½¿ç”¨è€…æ‰¿æ‹…!
-rem !ä½¿ç”¨è„šæœ¬é€ æˆçš„é—®é¢˜å‡ç”±ä½¿ç”¨è€…æ‰¿æ‹…!
+%%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a 
+rem Õâ¸öÖ»ÊÇ×î¼òµ¥µÄ¼ÓÃÜÖ»ÊÇÓÃÏµÍ³×Ô´øµÄ¼ÇÊÂ±¾´ò¿ª²»ÁË
+rem !Ê¹ÓÃ½Å±¾Ôì³ÉµÄÎÊÌâ¾ùÓÉÊ¹ÓÃÕß³Ğµ£!
+rem !Ê¹ÓÃ½Å±¾Ôì³ÉµÄÎÊÌâ¾ùÓÉÊ¹ÓÃÕß³Ğµ£!
+rem !Ê¹ÓÃ½Å±¾Ôì³ÉµÄÎÊÌâ¾ùÓÉÊ¹ÓÃÕß³Ğµ£!
 @echo off
 mode con cols=50 lines=25
-TITLE smsboom è¾…åŠ©è„šæœ¬
+TITLE smsboom ¸¨Öú½Å±¾
 color 02
-rem ç¯å¢ƒå˜é‡
+rem »·¾³±äÁ¿
 set file_config=%cd%\config.ini
 set file_smsboom=%cd%\smsboom.exe
 set file_API=%cd%\api.json
@@ -16,23 +16,23 @@ set http_proxy=%cd%\http_proxy.txt
 set socks4_proxy=%cd%\socks4_proxy.txt
 set socks5_proxy=%cd%\socks5_proxy.txt
 
-rem æ£€æŸ¥é‡è¦æ–‡ä»¶
-if not exist %file_smsboom% echo é‡è¦ç¨‹åºä¸å­˜åœ¨ & pause & exit /b
+rem ¼ì²éÖØÒªÎÄ¼ş
+if not exist %file_smsboom% echo ÖØÒª³ÌĞò²»´æÔÚ & pause & exit /b
 
-rem è¯»å–é…ç½®æ–‡ä»¶
+rem ¶ÁÈ¡ÅäÖÃÎÄ¼ş
 
-rem è®¾ç½®å˜é‡
+rem ÉèÖÃ±äÁ¿
 set jb-time=2024/2/1/12:00
 set api-time=2023-11-23
 set get_api-time=2023-11-23
 set version=0.0.8
-set GUI-3=ä½œè€…
+set GUI-3=×÷Õß
 set multithreaded=10
 set frequency=1
 set Interval=0
 set proxy=
-set GUI-proxy=å…³é—­
-set update=å›½å¤–
+set GUI-proxy=¹Ø±Õ
+set update=¹úÍâ
 :START
 set quantity=1
 set phone=
@@ -40,55 +40,55 @@ cls
 echo.
 ECHO.==================================================
 echo.
-echo.                smsboom è¾…åŠ©è„šæœ¬
+echo.                smsboom ¸¨Öú½Å±¾
 echo.
-echo.        1.å¯åŠ¨è½°ç‚¸         2.å¤šä¸ªè½°ç‚¸
+echo.        1.Æô¶¯ºäÕ¨         2.¶à¸öºäÕ¨
 echo.
-echo.        3.çŸ­ä¿¡æ¥å£[%GUI-3%]   4.æ›´æ–°æ¥å£
+echo.        3.¶ÌĞÅ½Ó¿Ú[%GUI-3%]   4.¸üĞÂ½Ó¿Ú
 echo.
-echo.        5.å…è´£å£°æ˜         6.æ›´æ–°é•œåƒ[%update%]
+echo.        5.ÃâÔğÉùÃ÷         6.¸üĞÂ¾µÏñ[%update%]
 echo.
-echo.        7.å…³äºè„šæœ¬         8.æ›´æ–°è„šæœ¬
+echo.        7.¹ØÓÚ½Å±¾         8.¸üĞÂ½Å±¾
 echo.
 echo.                   0.Exit
 echo.
 ECHO.==================================================
-choice /c:012345678 /m:"è¯·é€‰æ‹©ä½ è¦çš„æ¨¡å¼"
+choice /c:012345678 /m:"ÇëÑ¡ÔñÄãÒªµÄÄ£Ê½"
 if %errorlevel%==1 exit
 if %errorlevel%==2 goto SINGLE
 if %errorlevel%==3 goto multiple
 if %errorlevel%==4 (
-    if %GUI-3%==å®˜æ–¹ set GUI-3=ä½œè€…
-    if %GUI-3%==ä½œè€… set GUI-3=å®˜æ–¹
+    if %GUI-3%==¹Ù·½ set GUI-3=×÷Õß
+    if %GUI-3%==×÷Õß set GUI-3=¹Ù·½
 
     goto START
 )
 if %errorlevel%==5 (
     cls
-    if %GUI-3%==å®˜æ–¹ (
-        echo æ—¶é—´%jb-time%ï¼Œå®˜æ–¹ç½‘å€ä»æœ‰é—®é¢˜ï¼Œå¯èƒ½ä¼šå¯¼è‡´æ— æ³•ä½¿ç”¨!æ˜¯å¦ç»§ç»­æ›´æ–°
+    if %GUI-3%==¹Ù·½ (
+        echo Ê±¼ä%jb-time%£¬¹Ù·½ÍøÖ·ÈÔÓĞÎÊÌâ£¬¿ÉÄÜ»áµ¼ÖÂÎŞ·¨Ê¹ÓÃ!ÊÇ·ñ¼ÌĞø¸üĞÂ
         choice
         if errorlevel 1 %file_smsboom% update
         if errorlevel 2 goto StART
         pause
 
     )
-    if %GUI-3%==ä½œè€… (
-        if %update%==å›½å†… (
-            echo.æ­£åœ¨ä»Giteeä¸Šä¸‹è½½API.json
+    if %GUI-3%==×÷Õß (
+        if %update%==¹úÄÚ (
+            echo.ÕıÔÚ´ÓGiteeÉÏÏÂÔØAPI.json
             curl -L -O https://gitee.com/Dong8jing8yu/Dong8jing8yu.github.io/raw/main/smsboom/api.json
             pause
             cls
-            echo.æ­£åœ¨ä»Giteeä¸Šä¸‹è½½GETAPI.json
+            echo.ÕıÔÚ´ÓGiteeÉÏÏÂÔØGETAPI.json
             curl -L -O https://gitee.com/Dong8jing8yu/Dong8jing8yu.github.io/raw/main/smsboom/GETAPI.json
         )
-        if %update%==å›½å¤– (
+        if %update%==¹úÍâ (
             cls
-            echo.æ­£åœ¨ä»GitHubä¸Šä¸‹è½½API.json
+            echo.ÕıÔÚ´ÓGitHubÉÏÏÂÔØAPI.json
             curl -L -O --ssl-no-revoke https://raw.githubusercontent.com/Dong8jing8yu/Dong8jing8yu.github.io/main/smsboom/api.json
             pause
             cls
-            echo.æ­£åœ¨ä»GitHubä¸Šä¸‹è½½GETAPI.json
+            echo.ÕıÔÚ´ÓGitHubÉÏÏÂÔØGETAPI.json
             curl -L -O --ssl-no-revoke https://raw.githubusercontent.com/Dong8jing8yu/Dong8jing8yu.github.io/main/smsboom/GETAPI.json
         )
         pause
@@ -98,20 +98,20 @@ if %errorlevel%==5 (
 )
 if %errorlevel%==6 goto DISCLAIMER
 if %errorlevel%==7 (
-    if %update%==å›½å¤– set update=å›½å†…
-    if %update%==å›½å†… set update=å›½å¤–
+    if %update%==¹úÍâ set update=¹úÄÚ
+    if %update%==¹úÄÚ set update=¹úÍâ
 
     goto START
 )
 if %errorlevel%==8 goto ABOUT
 if %errorlevel%==9 (
     cls
-    if %update%==å›½å†… (
-        echo.æ­£åœ¨ä»Giteeä¸Šä¸‹è½½æœ€æ–°è„šæœ¬
+    if %update%==¹úÄÚ (
+        echo.ÕıÔÚ´ÓGiteeÉÏÏÂÔØ×îĞÂ½Å±¾
         curl -L -O https://gitee.com/Dong8jing8yu/Dong8jing8yu.github.io/raw/main/smsboom/go.bat
     )
-    if %update%==å›½å¤– (
-        echo.æ­£åœ¨ä»GitHubä¸Šä¸‹è½½æœ€æ–°è„šæœ¬
+    if %update%==¹úÍâ (
+        echo.ÕıÔÚ´ÓGitHubÉÏÏÂÔØ×îĞÂ½Å±¾
         curl -L -O --ssl-no-revoke https://raw.githubusercontent.com/Dong8jing8yu/Dong8jing8yu.github.io/main/smsboom/go.bat
     )
     %cd%/go.bat
@@ -124,39 +124,39 @@ cls
 echo.
 ECHO.==================================================
 echo.
-echo.                    å•äººè½°ç‚¸               
+echo.                    µ¥ÈËºäÕ¨               
 echo.
-echo.     1.çº¿ç¨‹æ•°[%multithreaded%]         2.è½®ç•ªæ¬¡æ•°[%frequency%]
-echo.                  5.å¼€å§‹
-echo.     3.é—´éš”æ—¶é—´[%Interval%]        4.ä»£ç†åˆ—è¡¨[%GUI-proxy%]
+echo.     1.Ïß³ÌÊı[%multithreaded%]         2.ÂÖ·¬´ÎÊı[%frequency%]
+echo.                  5.¿ªÊ¼
+echo.     3.¼ä¸ôÊ±¼ä[%Interval%]        4.´úÀíÁĞ±í[%GUI-proxy%]
 echo.
 echo.                     0.back
 echo.
 ECHO.==================================================
 if not defined phone (
-    set /p phone=è¯·è¾“å…¥æ‰‹æœºå·:
+    set /p phone=ÇëÊäÈëÊÖ»úºÅ:
 )
 
-choice /c:012345 /m:"ä½ è¦å¹²å•¥"
+choice /c:012345 /m:"ÄãÒª¸ÉÉ¶"
 if %errorlevel%==1 goto START
 if %errorlevel%==2 (
-    set /p multithreaded=è¯·è¾“å…¥çº¿ç¨‹æ•°:
+    set /p multithreaded=ÇëÊäÈëÏß³ÌÊı:
     goto SINGLE
 )
 if %errorlevel%==3 (
-    set /p frequency=è¯·è¾“å…¥è½°ç‚¸æ¬¡æ•°:
+    set /p frequency=ÇëÊäÈëºäÕ¨´ÎÊı:
     goto SINGLE
 )
 if %errorlevel%==4 (
-    set /p Interval=è¯·è¾“å…¥é—´éš”æ—¶é—´-ç§’:
+    set /p Interval=ÇëÊäÈë¼ä¸ôÊ±¼ä-Ãë:
     goto SINGLE
 )
 if %errorlevel%==5 (
-    if %GUI-proxy%==å…³é—­ set GUI-proxy=å¼€å¯
-    if %GUI-proxy%==å¼€å¯ set GUI-proxy=å…³é—­
+    if %GUI-proxy%==¹Ø±Õ set GUI-proxy=¿ªÆô
+    if %GUI-proxy%==¿ªÆô set GUI-proxy=¹Ø±Õ
 
-    if %GUI-proxy%==å…³é—­ set proxy=
-    if %GUI-proxy%==å¼€å¯ set proxy=-e
+    if %GUI-proxy%==¹Ø±Õ set proxy=
+    if %GUI-proxy%==¿ªÆô set proxy=-e
     goto SINGLE
 )
 if %errorlevel%==6 (
@@ -172,36 +172,36 @@ cls
 echo.
 ECHO.==================================================
 echo.
-echo.                    å¤šäººè½°ç‚¸               
+echo.                    ¶àÈËºäÕ¨               
 echo.
-echo.          1.çº¿ç¨‹æ•°[%multithreaded%]       2.è½®ç•ªæ¬¡æ•°[%frequency%]
-echo.                      5.å¼€å§‹
-echo.          3.é—´éš”æ—¶é—´[%Interval%]        4.ä»£ç†åˆ—è¡¨[%GUI-proxy%]
-echo.                      6.å—å®³è€…[%quantity%]
+echo.          1.Ïß³ÌÊı[%multithreaded%]       2.ÂÖ·¬´ÎÊı[%frequency%]
+echo.                      5.¿ªÊ¼
+echo.          3.¼ä¸ôÊ±¼ä[%Interval%]        4.´úÀíÁĞ±í[%GUI-proxy%]
+echo.                      6.ÊÜº¦Õß[%quantity%]
 echo.
 echo.                     0.back
 echo.
 ECHO.==================================================
-choice /c:0123456 /m:"ä½ è¦å¹²å•¥"
+choice /c:0123456 /m:"ÄãÒª¸ÉÉ¶"
 if %errorlevel%==1 goto START
 if %errorlevel%==2 (
-    set /p multithreaded=è¯·è¾“å…¥çº¿ç¨‹æ•°:
+    set /p multithreaded=ÇëÊäÈëÏß³ÌÊı:
     goto SINGLE
 )
 if %errorlevel%==3 (
-    set /p frequency=è¯·è¾“å…¥è½°ç‚¸æ¬¡æ•°:
+    set /p frequency=ÇëÊäÈëºäÕ¨´ÎÊı:
     goto SINGLE
 )
 if %errorlevel%==4 (
-    set /p Interval=è¯·è¾“å…¥é—´éš”æ—¶é—´-ç§’:
+    set /p Interval=ÇëÊäÈë¼ä¸ôÊ±¼ä-Ãë:
     goto SINGLE
 )
 if %errorlevel%==5 (
-    if %GUI-proxy%==å…³é—­ set GUI-proxy=å¼€å¯
-    if %GUI-proxy%==å¼€å¯ set GUI-proxy=å…³é—­
+    if %GUI-proxy%==¹Ø±Õ set GUI-proxy=¿ªÆô
+    if %GUI-proxy%==¿ªÆô set GUI-proxy=¹Ø±Õ
 
-    if %GUI-proxy%==å…³é—­ set proxy=
-    if %GUI-proxy%==å¼€å¯ set proxy=-e
+    if %GUI-proxy%==¹Ø±Õ set proxy=
+    if %GUI-proxy%==¿ªÆô set proxy=-e
     goto SINGLE
 )
 if %errorlevel%==6 goto START
@@ -214,23 +214,23 @@ cls
 echo.
 ECHO.==================================================
 echo.
-echo.                   !å…è´£å£°æ˜!            
-echo.         ä½¿ç”¨æ­¤ç¨‹åºè¯·éµå®ˆå½“åœ°çš„æ³•å¾‹æ³•è§„
-echo.       è§¦çŠ¯æ³•å¾‹æ‰€é€ æˆçš„é—®é¢˜å‡ç”±ä½¿ç”¨è€…æ‰¿æ‹…ã€‚
-echo.                   ç¦æ­¢æ¶æ„ä½¿ç”¨
-echo.              ç¦æ­¢æ»¥ç”¨ä¸ç”¨äºå•†ä¸šç”¨é€”
-echo.                   ç¦æ­¢äºŒæ”¹
-echo.               æœªç»ä½œè€…åŒæ„ç¦æ­¢æ¬è¿
+echo.                   !ÃâÔğÉùÃ÷!            
+echo.         Ê¹ÓÃ´Ë³ÌĞòÇë×ñÊØµ±µØµÄ·¨ÂÉ·¨¹æ
+echo.       ´¥·¸·¨ÂÉËùÔì³ÉµÄÎÊÌâ¾ùÓÉÊ¹ÓÃÕß³Ğµ£¡£
+echo.                   ½ûÖ¹¶ñÒâÊ¹ÓÃ
+echo.              ½ûÖ¹ÀÄÓÃÓëÓÃÓÚÉÌÒµÓÃÍ¾
+echo.                   ½ûÖ¹¶ş¸Ä
+echo.               Î´¾­×÷ÕßÍ¬Òâ½ûÖ¹°áÔË
 echo.
 echo.
 echo.
-echo.       !ä½¿ç”¨è„šæœ¬é€ æˆçš„é—®é¢˜å‡ç”±ä½¿ç”¨è€…æ‰¿æ‹…!
+echo.       !Ê¹ÓÃ½Å±¾Ôì³ÉµÄÎÊÌâ¾ùÓÉÊ¹ÓÃÕß³Ğµ£!
 echo.
-echo.       !ä½¿ç”¨è„šæœ¬é€ æˆçš„é—®é¢˜å‡ç”±ä½¿ç”¨è€…æ‰¿æ‹…!
+echo.       !Ê¹ÓÃ½Å±¾Ôì³ÉµÄÎÊÌâ¾ùÓÉÊ¹ÓÃÕß³Ğµ£!
 echo.
-echo.       !ä½¿ç”¨è„šæœ¬é€ æˆçš„é—®é¢˜å‡ç”±ä½¿ç”¨è€…æ‰¿æ‹…!
+echo.       !Ê¹ÓÃ½Å±¾Ôì³ÉµÄÎÊÌâ¾ùÓÉÊ¹ÓÃÕß³Ğµ£!
 echo.
-echo.         !ä½¿ç”¨æœ¬è¾…åŠ©è„šæœ¬åˆ™ä»£è¡¨åŒæ„!
+echo.         !Ê¹ÓÃ±¾¸¨Öú½Å±¾Ôò´ú±íÍ¬Òâ!
 ECHO.==================================================
 echo.
 pause
@@ -241,21 +241,21 @@ cls
 echo.
 ECHO.==================================================
 echo.
-echo.                   å…³äºè„šæœ¬               
+echo.                   ¹ØÓÚ½Å±¾               
 echo.
-echo.                   â†“ä½œè€…â†“
+echo.                   ¡ı×÷Õß¡ı
 echo.
-echo.                    ä¸œç»é›¨
+echo.                    ¶«¾­Óê
 echo.
-echo.                  â†“E-mailâ†“
+echo.                  ¡ıE-mail¡ı
 echo.
 echo.               10554117737@qq.com
 echo.                    
-echo.            â†“æœ€åä¸€æ¬¡æ›´æ–°æ¥å£æ—¶é—´â†“
+echo.            ¡ı×îºóÒ»´Î¸üĞÂ½Ó¿ÚÊ±¼ä¡ı
 echo.
 echo.         api:%api-time%    get:%get_api-time%
 echo.
-echo.                   ç‰ˆæœ¬:%version%
+echo.                   °æ±¾:%version%
 echo.                 %jb-time%
 echo.         https://dong8jing8yu.github.io/
 ECHO.==================================================
