@@ -1,11 +1,9 @@
-%%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a %%a 
-rem 这个只是最简单的加密只是用系统自带的记事本打开不了
 rem !使用脚本造成的问题均由使用者承担!
 rem !使用脚本造成的问题均由使用者承担!
 rem !使用脚本造成的问题均由使用者承担!
 @echo off
 mode con cols=50 lines=25
-TITLE smsboom 辅助脚本
+
 color 02
 rem 环境变量
 set file_config=%cd%\config.ini
@@ -15,7 +13,6 @@ set file_GET_API=%cd%\GETAPI.json
 set http_proxy=%cd%\http_proxy.txt
 set socks4_proxy=%cd%\socks4_proxy.txt
 set socks5_proxy=%cd%\socks5_proxy.txt
-
 rem 检查重要文件
 if not exist %file_smsboom% echo 重要程序不存在 & pause & exit /b
 
@@ -25,7 +22,8 @@ rem 设置变量
 set jb-time=2024/2/1/12:00
 set api-time=2023-11-23
 set get_api-time=2023-11-23
-set version=0.0.8
+set version=0.0.9
+TITLE smsboom 辅助脚本-%version%
 set GUI-3=作者
 set multithreaded=10
 set frequency=1
@@ -33,6 +31,7 @@ set Interval=0
 set proxy=
 set GUI-proxy=关闭
 set update=国外
+ren  smsboom_辅助脚本_Download.bat smsboom_辅助脚本-%version%.bat
 :START
 set quantity=1
 set phone=
@@ -108,11 +107,15 @@ if %errorlevel%==9 (
     cls
     if %update%==国内 (
         echo.正在从Gitee上下载最新脚本
-        curl -L -O https://gitee.com/Dong8jing8yu/Dong8jing8yu.github.io/raw/main/smsboom/go.bat
+        curl -L -o smsboom_辅助脚本_Download.bat https://gitee.com/Dong8jing8yu/Dong8jing8yu.github.io/raw/main/smsboom/go.bat
+        pause
+        .smsboom_辅助脚本_Download.bat
     )
     if %update%==国外 (
         echo.正在从GitHub上下载最新脚本
-        curl -L -O --ssl-no-revoke https://raw.githubusercontent.com/Dong8jing8yu/Dong8jing8yu.github.io/main/smsboom/go.bat
+        curl -L -o smsboom_辅助脚本_Download.bat --ssl-no-revoke https://raw.githubusercontent.com/Dong8jing8yu/Dong8jing8yu.github.io/main/smsboom/go.bat
+        pause
+        .smsboom_辅助脚本_Download.bat
     )
     %cd%/go.bat
     pause
