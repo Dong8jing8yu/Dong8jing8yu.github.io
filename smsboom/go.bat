@@ -14,7 +14,7 @@ set http_proxy=%cd%\http_proxy.txt
 set socks4_proxy=%cd%\socks4_proxy.txt
 set socks5_proxy=%cd%\socks5_proxy.txt
 rem 检查重要文件
-if not exist %file_smsboom% echo 重要程序不存在 & pause & exit /b
+if not exist %file_smsboom% echo 重要程序smsboom.exe不存在 & pause & exit /b
 
 rem 读取配置文件
 
