@@ -15,9 +15,9 @@ set Subcommands_2=
 set Subcommands_3=
 rem 设置命令的内容
 set CP_G_1=        1.help                  2.ability
-set CP_G_2=        3.
-set CP_G_3=        5.
-set CP_G_4=        7.
+set CP_G_2=        3.                      4.
+set CP_G_3=        5.                      6.
+set CP_G_4=        7.                      8.
 
 ren Minecraft-辅助命令脚本_Download.bat Minecraft-辅助命令脚本-%version%.bat
 :START
@@ -68,66 +68,66 @@ choice /c:ad012345678 /m:"请选择你想要的操作"
 if %errorlevel%==1 (
     if %command_Pages%==10 (
         set command_Pages=9
-        set CP_G_1=9
-        set CP_G_2=9
-        set CP_G_3=9
-        set CP_G_4=9
+        set CP_G_1=        1.                       2.
+        set CP_G_2=        3.                       4.
+        set CP_G_3=        5.                       6.
+        set CP_G_4=        7.                       8.
     )
     if %command_Pages%==9 (
         set command_Pages=8
-        set CP_G_1=8
-        set CP_G_2=8
-        set CP_G_3=8
-        set CP_G_4=8
+        set CP_G_1=        1.                       2.
+        set CP_G_2=        3.                       4.
+        set CP_G_3=        5.                       6.
+        set CP_G_4=        7.                       8.
     )
     if %command_Pages%==8 (
         set command_Pages=7
-        set CP_G_1=7
-        set CP_G_2=7
-        set CP_G_3=7
-        set CP_G_4=7
+        set CP_G_1=        1.                       2.
+        set CP_G_2=        3.                       4.
+        set CP_G_3=        5.                       6.
+        set CP_G_4=        7.                       8.
     )
     if %command_Pages%==7 (
         set command_Pages=6
-        set CP_G_1=6
-        set CP_G_2=6
-        set CP_G_3=6
-        set CP_G_4=6
+        set CP_G_1=        1.                       2.
+        set CP_G_2=        3.                       4.
+        set CP_G_3=        5.                       6.
+        set CP_G_4=        7.                       8.
     )
     if %command_Pages%==6 (
         set command_Pages=5
-        set CP_G_1=5
-        set CP_G_2=5
-        set CP_G_3=5
-        set CP_G_4=5
+        set CP_G_1=        1.                       2.
+        set CP_G_2=        3.                       4.
+        set CP_G_3=        5.                       6.
+        set CP_G_4=        7.                       8.
     )
     if %command_Pages%==5 (
         set command_Pages=4
-        set CP_G_1=4
-        set CP_G_2=4
-        set CP_G_3=4
-        set CP_G_4=4
+        set CP_G_1=        1.                       2.
+        set CP_G_2=        3.                       4.
+        set CP_G_3=        5.                       6.
+        set CP_G_4=        7.                       8.
     )
     if %command_Pages%==4 (
         set command_Pages=3
-        set CP_G_1=3
-        set CP_G_2=3
-        set CP_G_3=3
-        set CP_G_4=3
+        set CP_G_1=        1.                       2.
+        set CP_G_2=        3.                       4.
+        set CP_G_3=        5.                       6.
+        set CP_G_4=        7.                       8.
     )
     if %command_Pages%==3 (
         set command_Pages=2
-        set CP_G_1=2
-        set CP_G_2=2
-        set CP_G_3=2
-        set CP_G_4=2
+        set CP_G_1=        1.                       2.
+        set CP_G_2=        3.                       4.
+        set CP_G_3=        5.                       6.
+        set CP_G_4=        7.                       8.
     )
     if %command_Pages%==2 (
         set command_Pages=1
         set CP_G_1=        1.help                   2.ability
-        set CP_G_2=        3.
-        set CP_G_3=        5.
-        set CP_G_4=        7.
+        set CP_G_2=        3.                       4.
+        set CP_G_3=        5.                       6.
+        set CP_G_4=        7.                       8.
     )
     if %command_Pages%==1 echo.没有了,退出按请0 && pause
     goto COMMAND_choose
@@ -135,70 +135,73 @@ if %errorlevel%==1 (
 if %errorlevel%==2 (
     if %command_Pages%==1 (
         set command_Pages=2
-        set CP_G_1=2
-        set CP_G_2=2
-        set CP_G_3=2
-        set CP_G_4=2
+        set CP_G_1=        1.                       2.
+        set CP_G_2=        3.
+        set CP_G_3=        5.
+        set CP_G_4=        7.
     )
     if %command_Pages%==2 (
         set command_Pages=3
-        set CP_G_1=3
-        set CP_G_2=3
-        set CP_G_3=3
-        set CP_G_4=3
+        set CP_G_1=        1.                       2.
+        set CP_G_2=        3.
+        set CP_G_3=        5.
+        set CP_G_4=        7.
     )
     if %command_Pages%==3 (
         set command_Pages=4
-        set CP_G_1=4
-        set CP_G_2=4
-        set CP_G_3=4
-        set CP_G_4=4
+        set CP_G_1=        1.                       2.
+        set CP_G_2=        3.
+        set CP_G_3=        5.
+        set CP_G_4=        7.
     )
     if %command_Pages%==4 (
         set command_Pages=5
-        set CP_G_1=5
-        set CP_G_2=5
-        set CP_G_3=5
-        set CP_G_4=5
+        set CP_G_1=        1.                       2.
+        set CP_G_2=        3.
+        set CP_G_3=        5.
+        set CP_G_4=        7.
     )
     if %command_Pages%==5 (
         set command_Pages=6
-        set CP_G_1=6
-        set CP_G_2=6
-        set CP_G_3=6
-        set CP_G_4=6
+        set CP_G_1=        1.                       2.
+        set CP_G_2=        3.
+        set CP_G_3=        5.
+        set CP_G_4=        7.
     )
     if %command_Pages%==6 (
         set command_Pages=7
-        set CP_G_1=7
-        set CP_G_2=7
-        set CP_G_3=7
-        set CP_G_4=7
+        set CP_G_1=        1.                       2.
+        set CP_G_2=        3.
+        set CP_G_3=        5.
+        set CP_G_4=        7.
     )
     if %command_Pages%==7 (
         set command_Pages=8
-        set CP_G_1=8
-        set CP_G_2=8
-        set CP_G_3=8
-        set CP_G_4=8
+        set CP_G_1=        1.                       2.
+        set CP_G_2=        3.
+        set CP_G_3=        5.
+        set CP_G_4=        7.
     )
     if %command_Pages%==8 (
         set command_Pages=9
-        set CP_G_1=9
-        set CP_G_2=9
-        set CP_G_3=9
-        set CP_G_4=9
+        set CP_G_1=        1.                       2.
+        set CP_G_2=        3.
+        set CP_G_3=        5.
+        set CP_G_4=        7.
     )
     if %command_Pages%==9 (
         set command_Pages=10
-        set CP_G_1=10
-        set CP_G_2=10
-        set CP_G_3=10
-        set CP_G_4=10
+        set CP_G_1=        1.                       2.
+        set CP_G_2=        3.
+        set CP_G_3=        5.
+        set CP_G_4=        7.
     )
     if %command_Pages%==10 echo.没有了[80个],指令少了?→1055411737@qq.com && pause
     goto COMMAND_choose
 )
+:handoff_GUI
+
+goto COMMAND_choose
 if %errorlevel%==3 goto START
 if %errorlevel%==4 (
     set command_choose=1
