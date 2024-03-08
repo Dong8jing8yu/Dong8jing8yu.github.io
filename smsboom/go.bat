@@ -75,20 +75,20 @@ if %errorlevel%==5 (
     if %GUI-3%==作者 (
         if %update%==国内 (
             echo.正在从Gitee上下载API.json
-            curl -L -O https://gitee.com/Dong8jing8yu/Dong8jing8yu.github.io/raw/main/smsboom/api.json
+            curl -L -O --progress-bar --retry 5 https://gitee.com/Dong8jing8yu/Dong8jing8yu.github.io/raw/main/smsboom/api.json
             pause
             cls
             echo.正在从Gitee上下载GETAPI.json
-            curl -L -O https://gitee.com/Dong8jing8yu/Dong8jing8yu.github.io/raw/main/smsboom/GETAPI.json
+            curl -L -O --progress-bar --retry 5 https://gitee.com/Dong8jing8yu/Dong8jing8yu.github.io/raw/main/smsboom/GETAPI.json
         )
         if %update%==国外 (
             cls
             echo.正在从GitHub上下载API.json
-            curl -L -O --ssl-no-revoke https://raw.githubusercontent.com/Dong8jing8yu/Dong8jing8yu.github.io/main/smsboom/api.json
+            curl -L -O --ssl-no-revoke --connect-timeout 60 --progress-bar --retry 5 https://raw.githubusercontent.com/Dong8jing8yu/Dong8jing8yu.github.io/main/smsboom/api.json
             pause
             cls
             echo.正在从GitHub上下载GETAPI.json
-            curl -L -O --ssl-no-revoke https://raw.githubusercontent.com/Dong8jing8yu/Dong8jing8yu.github.io/main/smsboom/GETAPI.json
+            curl -L -O --ssl-no-revoke --connect-timeout 60 --progress-bar --retry 5 https://raw.githubusercontent.com/Dong8jing8yu/Dong8jing8yu.github.io/main/smsboom/GETAPI.json
         )
         pause
         goto START
@@ -107,13 +107,13 @@ if %errorlevel%==9 (
     cls
     if %update%==国内 (
         echo.正在从Gitee上下载最新脚本
-        curl -L -o smsboom_辅助脚本_Download.bat https://gitee.com/Dong8jing8yu/Dong8jing8yu.github.io/raw/main/smsboom/go.bat
+        curl -L -o smsboom_辅助脚本_Download.bat --progress-bar --retry 5 https://gitee.com/Dong8jing8yu/Dong8jing8yu.github.io/raw/main/smsboom/go.bat
         pause
         .smsboom_辅助脚本_Download.bat
     )
     if %update%==国外 (
         echo.正在从GitHub上下载最新脚本
-        curl -L -o smsboom_辅助脚本_Download.bat --ssl-no-revoke https://raw.githubusercontent.com/Dong8jing8yu/Dong8jing8yu.github.io/main/smsboom/go.bat
+        curl -L -o smsboom_辅助脚本_Download.bat --ssl-no-revoke --connect-timeout 60 --progress-bar --retry 5 https://raw.githubusercontent.com/Dong8jing8yu/Dong8jing8yu.github.io/main/smsboom/go.bat
         pause
         .smsboom_辅助脚本_Download.bat
     )
@@ -178,9 +178,10 @@ echo.
 echo.                    多人轰炸               
 echo.
 echo.          1.线程数[%multithreaded%]       2.轮番次数[%frequency%]
-echo.                      5.开始
+echo.
 echo.          3.间隔时间[%Interval%]        4.代理列表[%GUI-proxy%]
-echo.                      6.受害者[%quantity%]
+echo.
+echo.          5.受害者[%quantity%]           6.开始
 echo.
 echo.                     0.back
 echo.
@@ -207,11 +208,11 @@ if %errorlevel%==5 (
     if %GUI-proxy%==开启 set proxy=-e
     goto SINGLE
 )
-if %errorlevel%==6 goto START
-if %errorlevel%==7 (
+if %errorlevel%==6 (
     set /a quantity=%quantity%+1
     goto multiple
 )
+if %errorlevel%==7 goto START
 :DISCLAIMER
 cls
 echo.
