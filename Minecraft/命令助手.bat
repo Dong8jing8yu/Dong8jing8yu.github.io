@@ -19,6 +19,7 @@ set CP_G_2=        3.
 set CP_G_3=        5.
 set CP_G_4=        7.
 
+ren Minecraft-辅助命令脚本_Download.bat Minecraft-辅助命令脚本-%version%.bat
 :START
 cls
 echo.
@@ -253,14 +254,15 @@ if %errorlevel%==1 goto START
 if %errorlevel%==2 (
     echo.正在准备从GitHub上下载最新脚本，请检查你是有加速GitHub
     pause
-    rem curl -L -o Minecraft-辅助命令脚本_Download.bat --ssl-no-revoke https://raw.githubusercontent.com/Dong8jing8yu/Dong8jing8yu.github.io/main/
-    rem .Minecraft-辅助命令脚本_Download.bat
+    curl -L -o Minecraft-辅助命令脚本_Download.bat --ssl-no-revoke --connect-timeout 60 --progress-bar --retry 5 https://raw.githubusercontent.com/Dong8jing8yu/Dong8jing8yu.github.io/main/Minecraft/命令助手.bat
+    .Minecraft-辅助命令脚本_Download.bat
 )
 if %errorlevel%==3 (
         echo.还没有找到好的网站呢
         pause
         goto Script_updates
 )
+goto START
 :DISCLAIMER
 cls
 echo.
