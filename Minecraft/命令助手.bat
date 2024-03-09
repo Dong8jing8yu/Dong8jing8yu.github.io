@@ -4,8 +4,8 @@ mode con cols=50 lines=20
 color 09
 
 rem 设置变量
-set script-time=2024/2/1/12:00
-set version=0.0.1
+set script-time=2024/2/1
+set version=0.0.2
 TITLE Minecraft-辅助命令脚本-%version%
 rem 设置命令变量
 set command_Pages=1
@@ -40,11 +40,6 @@ if %errorlevel%==2 goto COMMAND_choose
 if %errorlevel%==3 goto Script_updates
 if %errorlevel%==4 goto DISCLAIMER
 if %errorlevel%==5 goto ABOUT
-
-:NO
-echo.还没想好呢
-pause
-goto START
 
 :COMMAND_choose
 cls
@@ -91,6 +86,15 @@ if %errorlevel%==2 (
     if %command_Pages%==10 echo.没有了[80个],指令少了?→1055411737@qq.com && pause
     goto handoff_GUI
 )
+if %errorlevel%==3 goto START
+if %errorlevel%==4 set command_choose=1 && goto Subcommands
+if %errorlevel%==5 set command_choose=2 && goto Subcommands
+if %errorlevel%==6 set command_choose=3 && goto Subcommands
+if %errorlevel%==7 set command_choose=4 && goto Subcommands
+if %errorlevel%==8 set command_choose=5 && goto Subcommands
+if %errorlevel%==9 set command_choose=6 && goto Subcommands
+if %errorlevel%==10 set command_choose=7 && goto Subcommands
+if %errorlevel%==11 set command_choose=8 && goto Subcommands
 :handoff_GUI
 if %command_Pages%==1 (
     set CP_G_1=        1.help                   2.ability
@@ -154,43 +158,17 @@ if %command_Pages%==10 (
 )
 goto COMMAND_choose
 
-if %errorlevel%==3 goto START
-if %errorlevel%==4 (
-    set command_choose=1
-    goto Subcommands
-)
-if %errorlevel%==5 (
-    set command_choose=2
-    goto Subcommands
-)
-if %errorlevel%==6 (
-    set command_choose=3
-    goto Subcommands
-)
-if %errorlevel%==7 (
-    set command_choose=4
-    goto Subcommands
-)
-if %errorlevel%==8 (
-    set command_choose=5
-    goto Subcommands
-)
-if %errorlevel%==9 (
-    set command_choose=6
-    goto Subcommands
-)
-if %errorlevel%==10 (
-    set command_choose=7
-    goto Subcommands
-)
-if %errorlevel%==11 (
-    set command_choose=8
-    goto Subcommands
-)
 
 :Subcommands
+cls
 echo.%command_Pages% %command_choose%
 pause
+goto COMMAND_choose
+
+:NO
+echo.还没想好呢
+pause
+goto START
 
 :Script_updates
 cls
@@ -218,6 +196,7 @@ if %errorlevel%==3 (
         goto Script_updates
 )
 goto START
+
 :DISCLAIMER
 cls
 echo.
