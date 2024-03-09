@@ -66,142 +66,94 @@ echo.                       0.back
 ECHO.==================================================
 choice /c:ad012345678 /m:"请选择你想要的操作"
 if %errorlevel%==1 (
-    if %command_Pages%==10 (
-        set command_Pages=9
-        set CP_G_1=        1.                       2.
-        set CP_G_2=        3.                       4.
-        set CP_G_3=        5.                       6.
-        set CP_G_4=        7.                       8.
-    )
-    if %command_Pages%==9 (
-        set command_Pages=8
-        set CP_G_1=        1.                       2.
-        set CP_G_2=        3.                       4.
-        set CP_G_3=        5.                       6.
-        set CP_G_4=        7.                       8.
-    )
-    if %command_Pages%==8 (
-        set command_Pages=7
-        set CP_G_1=        1.                       2.
-        set CP_G_2=        3.                       4.
-        set CP_G_3=        5.                       6.
-        set CP_G_4=        7.                       8.
-    )
-    if %command_Pages%==7 (
-        set command_Pages=6
-        set CP_G_1=        1.                       2.
-        set CP_G_2=        3.                       4.
-        set CP_G_3=        5.                       6.
-        set CP_G_4=        7.                       8.
-    )
-    if %command_Pages%==6 (
-        set command_Pages=5
-        set CP_G_1=        1.                       2.
-        set CP_G_2=        3.                       4.
-        set CP_G_3=        5.                       6.
-        set CP_G_4=        7.                       8.
-    )
-    if %command_Pages%==5 (
-        set command_Pages=4
-        set CP_G_1=        1.                       2.
-        set CP_G_2=        3.                       4.
-        set CP_G_3=        5.                       6.
-        set CP_G_4=        7.                       8.
-    )
-    if %command_Pages%==4 (
-        set command_Pages=3
-        set CP_G_1=        1.                       2.
-        set CP_G_2=        3.                       4.
-        set CP_G_3=        5.                       6.
-        set CP_G_4=        7.                       8.
-    )
-    if %command_Pages%==3 (
-        set command_Pages=2
-        set CP_G_1=        1.                       2.
-        set CP_G_2=        3.                       4.
-        set CP_G_3=        5.                       6.
-        set CP_G_4=        7.                       8.
-    )
-    if %command_Pages%==2 (
-        set command_Pages=1
-        set CP_G_1=        1.help                   2.ability
-        set CP_G_2=        3.                       4.
-        set CP_G_3=        5.                       6.
-        set CP_G_4=        7.                       8.
-    )
+    if %command_Pages%==10 set command_Pages=9
+    if %command_Pages%==9 set command_Pages=8
+    if %command_Pages%==8 set command_Pages=7
+    if %command_Pages%==7 set command_Pages=6
+    if %command_Pages%==6 set command_Pages=5
+    if %command_Pages%==5 set command_Pages=4
+    if %command_Pages%==4 set command_Pages=3
+    if %command_Pages%==3 set command_Pages=2
+    if %command_Pages%==2 set command_Pages=1
     if %command_Pages%==1 echo.没有了,退出按请0 && pause
-    goto COMMAND_choose
+    goto handoff_GUI
 )
 if %errorlevel%==2 (
-    if %command_Pages%==1 (
-        set command_Pages=2
-        set CP_G_1=        1.                       2.
-        set CP_G_2=        3.
-        set CP_G_3=        5.
-        set CP_G_4=        7.
-    )
-    if %command_Pages%==2 (
-        set command_Pages=3
-        set CP_G_1=        1.                       2.
-        set CP_G_2=        3.
-        set CP_G_3=        5.
-        set CP_G_4=        7.
-    )
-    if %command_Pages%==3 (
-        set command_Pages=4
-        set CP_G_1=        1.                       2.
-        set CP_G_2=        3.
-        set CP_G_3=        5.
-        set CP_G_4=        7.
-    )
-    if %command_Pages%==4 (
-        set command_Pages=5
-        set CP_G_1=        1.                       2.
-        set CP_G_2=        3.
-        set CP_G_3=        5.
-        set CP_G_4=        7.
-    )
-    if %command_Pages%==5 (
-        set command_Pages=6
-        set CP_G_1=        1.                       2.
-        set CP_G_2=        3.
-        set CP_G_3=        5.
-        set CP_G_4=        7.
-    )
-    if %command_Pages%==6 (
-        set command_Pages=7
-        set CP_G_1=        1.                       2.
-        set CP_G_2=        3.
-        set CP_G_3=        5.
-        set CP_G_4=        7.
-    )
-    if %command_Pages%==7 (
-        set command_Pages=8
-        set CP_G_1=        1.                       2.
-        set CP_G_2=        3.
-        set CP_G_3=        5.
-        set CP_G_4=        7.
-    )
-    if %command_Pages%==8 (
-        set command_Pages=9
-        set CP_G_1=        1.                       2.
-        set CP_G_2=        3.
-        set CP_G_3=        5.
-        set CP_G_4=        7.
-    )
-    if %command_Pages%==9 (
-        set command_Pages=10
-        set CP_G_1=        1.                       2.
-        set CP_G_2=        3.
-        set CP_G_3=        5.
-        set CP_G_4=        7.
-    )
+    if %command_Pages%==1 set command_Pages=2
+    if %command_Pages%==2 set command_Pages=3
+    if %command_Pages%==3 set command_Pages=4
+    if %command_Pages%==4 set command_Pages=5
+    if %command_Pages%==5 set command_Pages=6
+    if %command_Pages%==6 set command_Pages=7
+    if %command_Pages%==7 set command_Pages=8
+    if %command_Pages%==8 set command_Pages=9
+    if %command_Pages%==9 set command_Pages=10
     if %command_Pages%==10 echo.没有了[80个],指令少了?→1055411737@qq.com && pause
-    goto COMMAND_choose
+    goto handoff_GUI
 )
 :handoff_GUI
-
+if %command_Pages%==1 (
+    set CP_G_1=        1.help                   2.ability
+    set CP_G_2=        3.
+    set CP_G_3=        5.
+    set CP_G_4=        7.
+)
+if %command_Pages%==2 (
+    set CP_G_1=        1.                       2.
+    set CP_G_2=        3.
+    set CP_G_3=        5.
+    set CP_G_4=        7.
+)
+if %command_Pages%==3 (
+    set CP_G_1=        1.                       2.
+    set CP_G_2=        3.
+    set CP_G_3=        5.
+    set CP_G_4=        7.
+)
+if %command_Pages%==4 (
+    set CP_G_1=        1.                       2.
+    set CP_G_2=        3.
+    set CP_G_3=        5.
+    set CP_G_4=        7.
+)
+if %command_Pages%==5 (
+    set CP_G_1=        1.                       2.
+    set CP_G_2=        3.
+    set CP_G_3=        5.
+    set CP_G_4=        7.
+)
+if %command_Pages%==6 (
+    set CP_G_1=        1.                       2.
+    set CP_G_2=        3.
+    set CP_G_3=        5.
+    set CP_G_4=        7.
+)
+if %command_Pages%==7 (
+    set CP_G_1=        1.                       2.
+    set CP_G_2=        3.
+    set CP_G_3=        5.
+    set CP_G_4=        7.
+)
+if %command_Pages%==8 (
+    set CP_G_1=        1.                       2.
+    set CP_G_2=        3.
+    set CP_G_3=        5.
+    set CP_G_4=        7.
+)
+if %command_Pages%==9 (
+    set CP_G_1=        1.                       2.
+    set CP_G_2=        3.
+    set CP_G_3=        5.
+    set CP_G_4=        7.
+)
+if %command_Pages%==10 (
+    set CP_G_1=        1.                       2.
+    set CP_G_2=        3.
+    set CP_G_3=        5.
+    set CP_G_4=        7.
+)
 goto COMMAND_choose
+
 if %errorlevel%==3 goto START
 if %errorlevel%==4 (
     set command_choose=1
