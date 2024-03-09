@@ -185,7 +185,7 @@ ECHO.==================================================
 choice /c:0yn /m:"请选择你想要的操作"
 if %errorlevel%==1 goto START
 if %errorlevel%==2 (
-    echo.正在准备从GitHub上下载最新脚本，请检查你是有加速GitHub
+    echo.正在准备从GitHub上下载最新脚本，请检查你是否有加速GitHub
     pause
     curl -L -o Minecraft-辅助命令脚本_Download.bat --ssl-no-revoke --connect-timeout 60 --retry 5 https://raw.githubusercontent.com/Dong8jing8yu/Dong8jing8yu.github.io/main/Minecraft/命令助手.bat
     Minecraft-辅助命令脚本_Download.bat
@@ -233,7 +233,7 @@ echo.
 echo.                 10554117737@qq.com
 echo.
 echo.                   版本:%version%
-echo.                 %script-time%
+echo.                    %script-time%
 echo.           https://dong8jing8yu.github.io/
 ECHO.==================================================
 pause
