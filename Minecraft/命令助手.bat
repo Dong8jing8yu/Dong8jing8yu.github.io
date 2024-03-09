@@ -19,7 +19,7 @@ set CP_G_2=        3.                      4.
 set CP_G_3=        5.                      6.
 set CP_G_4=        7.                      8.
 
-ren Minecraft-¸¨ÖúÃüÁî½Å±¾_Download.bat Minecraft-¸¨ÖúÃüÁî½Å±¾-%version%.bat
+ren Minecraft-¸¨ÖúÃüÁî½Å±¾_Download.bat ÃüÁîÖúÊÖ-%version%.bat
 :START
 cls
 echo.
